@@ -4,3 +4,5 @@ export const primaryCardColor = "#FFBCBC";
 export const primaryCardBorderColor = "#F76A8C";
 export const secondaryCardColor = "#F6D198";
 export const secondaryCardBorderColor = "#06623B";
+export const cloudContainer = "#b2ebf2";
+export const cloudBorder = "#00bcd4";
