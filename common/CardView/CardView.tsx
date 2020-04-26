@@ -1,5 +1,5 @@
 import React from "react";
-import {View, StyleSheet} from "react-native";
+import {View, StyleSheet, Dimensions} from "react-native";
 import {
   mainCardColor,
   mainCardBorderColor,
@@ -8,11 +8,10 @@ import {
   primaryCardColor,
   secondaryCardColor,
 } from "../../Theme/Colors";
+import {CardType, Card} from "../../models/Card/Card";
 
-type CardType = "main" | "primary" | "secondary";
-
-interface Props {
-  type: CardType;
+interface CardViewProps {
+  card: Card;
 }
 
 const getBorderColor = (type: CardType) => {
@@ -41,25 +40,29 @@ const getCardColor = (type: CardType) => {
   }
 };
 
-const Card: React.FC<Props> = ({type}: Props) => {
+const CardView: React.FC<CardViewProps> = ({card}: CardViewProps) => {
   return (
     <View
       style={[
         styles.card,
-        {borderColor: getBorderColor(type), backgroundColor: getCardColor(type)},
+        {borderColor: getBorderColor(card.type), backgroundColor: getCardColor(card.type)},
       ]}
     />
   );
 };
 
+const {width} = Dimensions.get("window");
+const CARD_ASPECT_RATIO = 1324 / 863;
+export const CARD_WIDTH = width - 8 * 8;
+export const CARD_HEIGHT = CARD_WIDTH / CARD_ASPECT_RATIO;
+
 const styles = StyleSheet.create({
   card: {
-    width: 280,
-    height: 170,
-    margin: 40,
+    width: CARD_WIDTH,
+    height: CARD_HEIGHT,
     borderRadius: 10,
     borderWidth: 4,
   },
 });
 
-export default Card;
+export default CardView;

@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {View, Button} from "react-native";
 import {styles} from "./OpacityAnimation.styles";
-import Card from "../../common/Card/Card";
 import Animated, {
   Value,
   useCode,
@@ -16,6 +15,8 @@ import Animated, {
   not,
 } from "react-native-reanimated";
 import {useClock} from "react-native-redash";
+import {Card} from "../../models/Card/Card";
+import CardView from "../../common/CardView/CardView";
 
 export default function OpacityAnimation() {
   const clock = useClock([]);
@@ -50,10 +51,12 @@ export default function OpacityAnimation() {
   const onTapToggle = () => {
     startAnimation.setValue(1);
   };
+
+  const card: Card = {id: "1", type: "main"};
   return (
     <View style={styles.rootContainer}>
       <Animated.View style={{opacity}}>
-        <Card />
+        <CardView card={card} />
       </Animated.View>
       <Button title="Toggle" onPress={onTapToggle} />
     </View>
