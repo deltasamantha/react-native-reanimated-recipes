@@ -1,8 +1,13 @@
 import React from "react";
-import {View, Button, Text} from "react-native";
+import {View, Button} from "react-native";
 import {styles} from "./HomeScreen.styles";
 import {useNavigation} from "@react-navigation/native";
-import {ROUTE_OPACITY, ROUTE_TRANSITIONS, ROUTE_TIMING} from "../../navigation/AppNavigator";
+import {
+  ROUTE_OPACITY,
+  ROUTE_TRANSITIONS,
+  ROUTE_TIMING,
+  ROUTE_PAN_GESTURE,
+} from "../../navigation/AppNavigator";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -25,6 +30,12 @@ export default function HomeScreen() {
         title="Timing Animation"
         onPress={() => {
           navigation.navigate(ROUTE_TIMING);
+        }}
+      />
+      <Button
+        title="Pan Gesture"
+        onPress={() => {
+          navigation.navigate(ROUTE_PAN_GESTURE);
         }}
       />
     </View>

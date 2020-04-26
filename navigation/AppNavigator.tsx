@@ -5,11 +5,13 @@ import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import OpacityAnimation from "../screens/OpacityAnimation/OpacityAnimation";
 import TransitionAnimation from "../screens/TransitionAnimation/TransitionAnimation";
 import Timing from "../screens/Timing/Timing";
+import PanGesture from "../screens/PanGesture/PanGesture";
 
 export const ROUTE_HOME = "Home";
 export const ROUTE_OPACITY = "Opacity";
 export const ROUTE_TRANSITIONS = "Transitions";
 export const ROUTE_TIMING = "Timing";
+export const ROUTE_PAN_GESTURE = "Pan Gesture";
 
 const AppStack = createStackNavigator();
 
@@ -21,6 +23,7 @@ export default function AppNavigator() {
         <AppStack.Screen name={ROUTE_OPACITY} component={OpacityAnimation} />
         <AppStack.Screen name={ROUTE_TRANSITIONS} component={TransitionAnimation} />
         <AppStack.Screen name={ROUTE_TIMING} component={Timing} />
+        <AppStack.Screen name={ROUTE_PAN_GESTURE} component={PanGesture} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
