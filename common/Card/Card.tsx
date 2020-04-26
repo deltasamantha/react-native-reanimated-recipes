@@ -7,7 +7,7 @@ import {
   secondaryCardBorderColor,
   primaryCardColor,
   secondaryCardColor,
-} from "../Theme/Colors";
+} from "../../Theme/Colors";
 
 type CardType = "main" | "primary" | "secondary";
 
